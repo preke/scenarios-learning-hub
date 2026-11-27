@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="在 Scenarios Learning Hub 选择机械臂抓取或 CubeSat 对地观测任务，探索三维模型，动手实验并规划操作顺序。">
+<meta name="description" content="在 Scenarios Learning Hub 探索机械臂、立方星、天文望远镜和电子电路，动手完成四项工程任务。">
 <title>Scenarios Learning Hub · 场景教学实验室</title>
 <style>
 :root{color-scheme:light;--ink:#272939;--muted:#616577;--purple:#7563ce;--deep:#5e4fb0;--soft:#efecfa;--line:#e0e1eb;--shell:#f8f9fc;--paper:#fff;font-family:"Avenir Next","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--shell);font-synthesis:none}
@@ -23,10 +23,12 @@ main{width:min(100% - 96px,1180px);margin:0 auto;flex:1;padding:clamp(34px,4.5vh
 <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><ellipse cx="12" cy="12" rx="3.8" ry="8.8"/><path d="M3.2 12h17.6"/></symbol>
 <symbol id="orbit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><ellipse cx="12" cy="12" rx="11" ry="3.5" transform="rotate(-35 12 12)"/></symbol>
 <symbol id="arm" viewBox="0 0 24 24"><path d="M2 21h11M5 20l2-6m3 6-1-6m3-4 5-4m0-2-4 1M8 9l2-4m1-1 6 2m1 0 3 3-1 2m-2-2-1 1"/><circle cx="8" cy="12" r="2.4"/><circle cx="11" cy="4" r="1.6"/><circle cx="18" cy="6" r="1.5"/></symbol>
+<symbol id="scope" viewBox="0 0 24 24"><path d="m3 9 12-5 2 5-12 5zM15 4l3-1.3 2.4 5.8-3.4 1.3M6 14l1 2.5 3-1.2-1-2.5M11 13l2 3m-1-2-5 7m5-7 5 7"/></symbol>
+<symbol id="resistor" viewBox="0 0 24 24"><path d="M2 12h4l2-5 3 10 3-10 3 10 2-5h3"/></symbol>
 </defs></svg>
 <header><div class="header-inner"><a href="index.html" class="brand" aria-label="Scenarios Learning Hub 场景目录"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="brand-name" lang="en">Scenarios<small>Learning Hub</small></span></a><a class="back" href="https://preke.github.io/demo.html#scenarios-learning-hub"><svg class="icon" aria-hidden="true"><use href="#back"/></svg>返回 Demos</a></div></header>
 <main>
-<div class="intro"><h1>场景教学实验室</h1><p>选择一项工程任务，从探索三维模型开始，动手实验，再规划自己的操作步骤。</p></div>
+<div class="intro"><h1>场景教学实验室</h1><p>选择一项工程任务，探索三维模型，再用实验结果完成自己的设计或观测记录。</p></div>
 <div class="cards">
 <a class="card robot" href="robot-arm/index.html" aria-labelledby="robot-title" aria-describedby="robot-summary robot-facts">
 <div class="image-link"><img src="assets/robot-arm.webp" alt="机械臂的夹爪正对着传送带上的蓝色零件，旁边是目标托盘" width="1080" height="608"></div>
@@ -39,6 +41,18 @@ main{width:min(100% - 96px,1180px);margin:0 auto;flex:1;padding:clamp(34px,4.5vh
 <div class="copy"><div class="category"><svg class="icon" aria-hidden="true"><use href="#orbit"/></svg>航天与对地观测</div><h2 id="sat-title">CubeSat 的首次对地观测</h2>
 <p class="summary" id="sat-summary">让「观澜一号」拍下湖区影像。拆看卫星组件，比较日照与地影中的电量，再安排拍摄与下传。</p>
 <div class="card-foot"><div class="facts" id="sat-facts"><span class="fact"><svg class="icon" aria-hidden="true"><use href="#clock"/></svg>约 25 分钟</span><span class="fact"><svg class="icon" aria-hidden="true"><use href="#globe"/></svg>中文课程</span></div><span class="launch">进入场景<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></div>
+</div></a>
+<a class="card telescope" href="telescope/index.html" aria-labelledby="telescope-title" aria-describedby="telescope-summary telescope-facts">
+<div class="image-link"><img src="assets/telescope.webp" alt="暮色中的山脊前，叉式架台托起朝向天空的白色望远镜" loading="lazy" width="1280" height="700"></div>
+<div class="copy"><div class="category"><svg class="icon" aria-hidden="true"><use href="#scope"/></svg>天文与空间环境</div><h2 id="telescope-title">用望远镜寻找空间碎片</h2>
+<p class="summary" id="telescope-summary">在山顶观测站值班。探索望远镜、比较长短曝光，找出三张星图里值得复查的移动光点。</p>
+<div class="card-foot"><div class="facts" id="telescope-facts"><span class="fact"><svg class="icon" aria-hidden="true"><use href="#clock"/></svg>约 20 分钟</span><span class="fact"><svg class="icon" aria-hidden="true"><use href="#globe"/></svg>中文课程</span></div><span class="launch">进入场景<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></div>
+</div></a>
+<a class="card circuit" href="circuit/index.html" aria-labelledby="circuit-title" aria-describedby="circuit-summary circuit-facts">
+<div class="image-link"><img src="assets/circuit.webp" alt="电子实验台上的面包板、LED 和限流电阻" loading="lazy" width="1280" height="720"></div>
+<div class="copy"><div class="category"><svg class="icon" aria-hidden="true"><use href="#resistor"/></svg>电子与电路设计</div><h2 id="circuit-title">点亮第一盏 LED</h2>
+<p class="summary" id="circuit-summary">在面包板上搭建指示灯。辨认 LED 极性，接通串联回路，再挑选电阻，让电流落在设计范围内。</p>
+<div class="card-foot"><div class="facts" id="circuit-facts"><span class="fact"><svg class="icon" aria-hidden="true"><use href="#clock"/></svg>约 20 分钟</span><span class="fact"><svg class="icon" aria-hidden="true"><use href="#globe"/></svg>中文课程</span></div><span class="launch">进入场景<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></div>
 </div></a>
 </div></main>
 <footer class="bottom"><div class="bottom-inner"><span lang="en">Scenarios Learning Hub</span><a href="https://preke.github.io/index.html">温志远的个人主页<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div></footer>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f8fc"><title>点亮第一盏 LED · Circuit Lab 电路实验室</title>
+<link rel="stylesheet" href="../common/site.css"><link rel="stylesheet" href="bench.css">
+</head>
+<body>
+<a class="skip" href="#main">跳至学习内容</a>
+<header class="topbar"><div class="top-inner">
+<a class="wordmark" href="index.html"><span class="brand-mark"><i data-icon="resistor"></i></span><b>Circuit Lab</b><span class="brand-cn">电路实验室</span></a>
+<nav class="primary-nav" aria-label="课程导航"><button data-page="studio" aria-current="page">任务工作台</button><button data-page="notes">实验手册</button></nav>
+<button class="progress-btn" id="progress-open"><span class="progress-ring" id="progress-ring"></span><span>学习进度</span><b id="progress-count">0 / 3</b></button>
+</div></header>
+<main id="main" tabindex="-1">
+<section id="studio">
+<div class="intro"><div class="meta-row"><a class="catalog-link" href="../index.html"><i data-icon="back"></i>场景目录</a><span class="meta-sep"></span><span class="mission-badge"><i data-icon="route"></i>电路设计</span><span><i data-icon="bars"></i>入门</span><span><i data-icon="clock"></i>约 20 分钟</span></div>
+<div class="title-row"><h1>点亮第一盏 LED</h1><button id="brief-open" class="outline-btn brief-btn"><i data-icon="book"></i>任务简报<i data-icon="chevron"></i></button></div>
+<p>为控制面板制作一盏红色指示灯。在 5 V 电源下接通 LED，再选出能让电流保持在 8–12 mA 的电阻。</p></div>
+<nav class="steps" aria-label="任务阶段">
+<button class="step" data-stage="0" aria-current="step"><span class="step-num">01</span><span><b>认识元件</b><small>查看实验台</small></span><i data-icon="cube"></i></button>
+<button class="step" data-stage="1"><span class="step-num">02</span><span><b>连接电路</b><small>接通串联回路</small></span><i data-icon="route"></i></button>
+<button class="step" data-stage="2"><span class="step-num">03</span><span><b>测量与选型</b><small>验证工作电流</small></span><i data-icon="activity"></i></button>
+</nav>
+<div class="workbench">
+<section class="stage" id="stage" aria-label="交互式电路实验台">
+<div id="model-mount" role="group" tabindex="0" aria-label="三维实验台。方向键旋转，加减键缩放，Home 复位。"></div>
+<div id="circuit-diagram" hidden></div>
+<div class="stage-header"><div><span class="stage-code"><span></span>DC-01 &nbsp;/&nbsp; ELECTRONICS BENCH</span><h2 id="view-title">直流实验台</h2></div>
+<div class="view-switch" aria-label="实验台视图"><button data-mode="model" aria-pressed="true"><i data-icon="cube"></i>实物</button><button data-mode="diagram" aria-pressed="false"><i data-icon="route"></i>电路图</button></div></div>
+<div class="marker" aria-hidden="true" id="marker" hidden><span class="marker-point"></span><svg class="marker-line" viewBox="0 0 32 21"><path d="M0 21 29 1h3" fill="none" stroke="white"/></svg><span class="marker-label"></span></div>
+<div class="stage-bottom"><span class="stage-tip" id="view-tip">参考装配 · 拖动旋转</span><div class="stage-tools" id="view-tools"><button id="zoom-out" aria-label="缩小"><i data-icon="minus"></i></button><button id="zoom-in" aria-label="放大"><i data-icon="plus"></i></button><span></span><button id="reset-view" aria-label="复位视角"><i data-icon="reset"></i></button></div></div>
+</section>
+<aside class="inspector">
+<section id="inspect-panel"><div class="inspector-title"><h2><i data-icon="layers"></i>元件图鉴</h2><span>共 4 项</span></div><p class="inspector-hint">选择元件，查看它在这条回路中的作用。</p>
+<div class="part-grid" id="parts"></div>
+<div class="part-note" aria-live="polite"><div class="part-id"><span class="tiny-line"></span><span id="part-en"></span></div><h3 id="part-title"></h3><p id="part-copy"></p><div class="tags" id="part-tags"></div></div></section>
+<section id="wiring-panel" hidden><div class="inspector-title"><h2><i data-icon="route"></i>接线台</h2><span id="wire-count"></span></div>
+<p class="inspector-hint">在电路图或下方选择两个端子，接上一根导线。用三根导线将电源、电阻和 LED 串联。</p><div id="pins" class="pin-grid"></div>
+<ul id="wire-list" aria-label="已接导线"></ul><button id="test-circuit" class="action-btn"><i data-icon="activity"></i>接通并检查</button>
+<p class="feedback" id="wire-feedback" role="status"></p></section>
+<section id="measure-panel" hidden><div class="inspector-title"><h2><i data-icon="activity"></i>工作电流</h2><span>目标 8–12 mA</span></div>
+<p class="inspector-hint">更换限流电阻，读取串联回路的电流，并记录你的选型。</p>
+<label for="resistance" class="field-label">限流电阻 R1</label><select id="resistance"></select>
+<div class="readout"><div><span>模拟电流表</span><strong><output id="ammeter">—</output> <small>mA</small></strong></div><i data-icon="activity"></i></div>
+<div class="measure-actions"><button class="action-btn" id="measure">记录并检验</button><button class="text-btn" data-stage="1">返回接线</button></div><p class="feedback" id="measure-feedback" role="status"></p>
+</section></aside></div>
+<section class="tutor-strip"><div class="tutor-icon"><i data-icon="spark"></i></div><div class="tutor-copy"><b>实验追问</b><span id="prompt"></span></div><button id="answer-toggle" class="text-btn" aria-expanded="false" aria-controls="answer">查看解析 <i data-icon="down"></i></button></section>
+<div id="answer" class="answer-box" hidden></div>
+<div class="explore-foot"><span id="stage-status"></span><button class="text-btn" id="advance"></button></div>
+<section id="records" hidden><h2>测量记录</h2><p>每个阻值保留一次读数。</p><table><thead><tr><th>电阻</th><th>电源</th><th>电流</th><th>判定</th></tr></thead><tbody id="records-body"></tbody></table></section>
+</section>
+<section id="notes" class="content-view" hidden><div class="meta-row"><span class="mission-badge"><i data-icon="book"></i>实验手册</span></div><h1>从电路图读懂实验台</h1><p class="lead">接线、选阻和读数时可以随时翻阅。</p>
+<div class="handbook"><article><i data-icon="route"></i><h2>跟着电流走一圈</h2><p>从电源正极出发，沿导线和元件一路回到负极。串联回路只有一条通路，各处电流大小相同。电阻放在 LED 的哪一侧都能限流。</p><button class="text-btn" data-stage="1">去连接电路 <i data-icon="arrow"></i></button></article>
+<article><i data-icon="resistor"></i><h2>给电阻留出电压</h2><p>本实验将红色 LED 的正向压降近似为 2.0 V。接入 5.0 V 电源后，电阻两端约有 3.0 V。用这个电压除以电阻，得到安培数，再乘 1000 换算为毫安。</p><div class="formula">I = (V<sub>S</sub> − V<sub>F</sub>) / R</div></article>
+<article><i data-icon="activity"></i><h2>读懂测量值</h2><p>这里的电流表等效串联在电源输出端。真实 LED 的压降会随型号、温度和电流变化。实际选型需核对器件数据表，本实验只计算给定条件下的理想读数。</p><button class="text-btn" data-stage="2">去测量电流 <i data-icon="arrow"></i></button></article></div></section>
+</main>
+<footer class="page-footer"><span><i data-icon="resistor"></i><b>Circuit Lab</b><span class="footer-dot">/</span>电路实验室</span><a class="catalog-link" href="../index.html"><i data-icon="back"></i>返回场景目录</a></footer>
+<dialog id="info-dialog" aria-labelledby="dialog-heading"><div class="dialog-inner"><button class="icon-btn" id="dialog-close" aria-label="关闭"><i data-icon="close"></i></button><div id="dialog-body"></div><button class="action-btn" id="dialog-ok">返回工作台</button></div></dialog>
+<script src="../common/icons.js"></script><script src="../common/three.min.js"></script><script src="bench-model.js"></script><script src="lesson.js"></script>
+</body></html>

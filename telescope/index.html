@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f8fc">
+  <meta name="description" content="探索地面光学望远镜，比较曝光时间，再用连续三张星图寻找疑似空间碎片。">
+  <title>用望远镜寻找空间碎片 · Sky Lab 天文观测实验室</title>
+  <link rel="stylesheet" href="../common/site.css">
+  <link rel="stylesheet" href="sky.css">
+  <link rel="stylesheet" href="experiment.css">
+  <script src="../common/icons.js" defer></script>
+  <script src="../common/three.min.js" defer></script>
+  <script src="model.js" defer></script>
+  <script src="experiment.js" defer></script>
+  <script src="sky.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到课程内容</a>
+<header class="topbar"><div class="top-inner">
+  <button class="wordmark" data-nav="studio" aria-label="Sky Lab 天文观测实验室首页"><span class="brand-mark"><i data-icon="scope"></i></span><b lang="en">Sky Lab</b><span class="brand-cn">天文观测实验室</span></button>
+  <nav class="primary-nav" aria-label="课程导航"><button data-nav="studio" aria-current="page">任务工作台</button><button data-nav="map">知识图谱</button><button data-nav="resources">学习资料</button></nav>
+  <button class="progress-btn" id="progress-open"><span class="progress-ring" id="progress-ring"></span><span>学习进度</span><b id="progress-count">0 / 3</b></button>
+</div></header>
+<main id="main" tabindex="-1">
+  <noscript>请启用 JavaScript 以操作望远镜、比较曝光并判读星图。<a href="../index.html">返回场景目录</a></noscript>
+  <div id="studio-view">
+    <section class="intro">
+      <div class="meta-row"><a class="catalog-link" href="../index.html"><i data-icon="back"></i>场景目录</a><span class="meta-sep"></span><span><i data-icon="bars"></i>入门</span><span><i data-icon="clock"></i>约 20 分钟</span></div>
+      <div class="title-row"><h1>用望远镜寻找空间碎片</h1><button class="outline-btn brief-btn" id="brief-open"><i data-icon="book"></i>任务简报<i data-icon="chevron"></i></button></div>
+      <p>今晚你在山顶观测站值班。调试光学望远镜，比较长短曝光，从连续星图中找出值得复查的移动光点。</p>
+    </section>
+    <nav class="steps" aria-label="任务阶段">
+      <button class="step" data-stage="explore" aria-current="step"><span class="step-num">01</span><span><b>探索望远镜</b><small>认识四个组件</small></span><i data-icon="scope"></i></button>
+      <button class="step" data-stage="experiment"><span class="step-num">02</span><span><b>曝光实验</b><small>比较移动光迹</small></span><i data-icon="aperture"></i></button>
+      <button class="step" data-stage="readout"><span class="step-num">03</span><span><b>星图判读</b><small>提交观测记录</small></span><i data-icon="layers"></i></button>
+    </nav>
+    <section id="explore">
+      <div class="workbench">
+        <section class="stage" aria-label="巡天望远镜的交互模型">
+          <div id="model-mount" tabindex="0" role="group" aria-label="望远镜三维模型。用方向键旋转，加减键缩放，Home 键复位。"></div>
+          <div class="stage-header"><div><span class="stage-code"><span></span>ST-01 &nbsp;/&nbsp; OPTICAL TELESCOPE</span><h2>巡天望远镜</h2></div>
+            <div class="view-switch" aria-label="模型模式"><button id="assembled" aria-pressed="true"><i data-icon="cube"></i>整机</button><button id="exploded" aria-pressed="false"><i data-icon="layers"></i>分解</button></div>
+          </div>
+          <div class="stage-bottom"><span class="stage-tip"><i data-icon="rotate3d"></i><span class="desktop-tip">拖动旋转 · 滚轮缩放</span><span class="touch-tip">拖动旋转 · 双指缩放</span></span>
+            <div class="stage-tools"><button id="zoom-out" aria-label="缩小" title="缩小"><i data-icon="minus"></i></button><button id="zoom-in" aria-label="放大" title="放大"><i data-icon="plus"></i></button><span></span><button id="reset-view" aria-label="重置视角" title="重置视角"><i data-icon="reset"></i></button></div>
+          </div>
+        </section>
+        <aside class="inspector"><div class="inspector-title"><h2><i data-icon="layers"></i>组件图鉴</h2><span>共 4 项</span></div><p class="inspector-hint">选择组件，在望远镜上查看它的位置。</p>
+          <div class="part-grid" id="part-grid"></div>
+          <div class="part-note" aria-live="polite"><div class="part-id"><span class="tiny-line"></span><span id="part-en"></span></div><h3 id="part-title"></h3><p id="part-desc"></p><div class="tags" id="part-tags"></div></div>
+        </aside>
+      </div>
+      <section class="tutor-strip"><div class="tutor-icon"><i data-icon="spark"></i></div><div class="tutor-copy"><b>值班笔记</b><span id="question"></span></div><button class="text-btn" id="answer-toggle" aria-expanded="false" aria-controls="answer">查看解析 <i data-icon="down"></i></button></section>
+      <div class="answer-box" id="answer" hidden></div>
+      <div class="explore-foot"><span><i data-icon="compass"></i>已探索 <b id="visit-count">1 / 4</b> 个组件</span><button class="text-btn" data-stage="experiment">进入曝光实验 <i data-icon="arrow"></i></button></div>
+    </section>
+    <section id="experiment" hidden><div id="exposure-lab"></div><div class="lesson-next"><button class="outline-btn" data-stage="explore"><i data-icon="back"></i>返回望远镜</button><button class="action-btn" data-stage="readout">进入星图判读 <i data-icon="arrow"></i></button></div></section>
+    <section id="readout" hidden aria-labelledby="read-title">
+      <div class="task-heading"><h2 id="read-title">三张星图里，谁在移动？</h2><p>三张图已经按背景恒星对齐。依次翻看片段，比较 A、B、C 三个窗口内的亮点。</p></div>
+      <div class="read-grid">
+        <section class="plate-panel" aria-label="对齐的三帧模拟星图">
+          <header class="plate-head"><b>星图阅片台</b><span id="plate-time"></span></header>
+          <canvas id="plate" width="720" height="370" role="img" aria-label="三处候选区域的模拟星场，位置也列在下方读数表中。"></canvas>
+          <div class="plate-controls"><span>切换帧</span><div id="frame-buttons" role="group" aria-label="星图片段"><button data-frame="0">第 1 帧</button><button data-frame="1">第 2 帧</button><button data-frame="2">第 3 帧</button></div></div>
+          <details class="pixel-table"><summary>查看本帧的像素读数</summary><table><caption>以图像左上角为坐标原点，单位为像素</caption><thead><tr><th>窗口</th><th>横坐标</th><th>纵坐标</th></tr></thead><tbody id="position-rows"></tbody></table></details>
+        </section>
+        <form class="record-panel" id="report">
+          <h3><i data-icon="file"></i>填写值班记录</h3>
+          <fieldset><legend>哪个窗口值得复查？</legend><div class="choice-group" id="candidates"><label><input type="radio" name="candidate" value="A"><span>A</span></label><label><input type="radio" name="candidate" value="B"><span>B</span></label><label><input type="radio" name="candidate" value="C"><span>C</span></label></div></fieldset>
+          <fieldset><legend>选出你的观测依据</legend><div class="reason-list">
+            <label><input type="radio" name="reason" value="fixed">三帧中位置都相同</label>
+            <label><input type="radio" name="reason" value="single">只有一帧出现亮点</label>
+            <label><input type="radio" name="reason" value="moving">相对恒星连续向同一方向移动</label>
+          </div></fieldset>
+          <button class="action-btn" type="submit">提交观测记录 <i data-icon="check"></i></button>
+          <p class="report-feedback" id="report-feedback" role="status">请翻阅全部三帧，再提交判断。</p>
+        </form>
+      </div>
+      <div class="lesson-next"><button class="outline-btn" data-stage="experiment"><i data-icon="back"></i>返回曝光实验</button><button class="text-btn" data-progress>查看学习进度 <i data-icon="arrow"></i></button></div>
+    </section>
+  </div>
+  <section class="content-view" id="map-view" hidden>
+    <a class="catalog-link" href="../index.html"><i data-icon="back"></i>场景目录</a>
+    <h1>从一束光到一条观测记录</h1><p class="lead">沿着成像和判读的顺序，回到工作台核对每一步。</p>
+    <div id="map-chains">
+      <article class="chain"><h2><i data-icon="scope"></i>让恒星保持在同一视场</h2><p>导星镜监测参考星的偏移，跟踪架台按反馈微调望远镜指向。</p><div class="chain-path"><button data-part="finder">导星镜</button><i data-icon="arrow"></i><button data-part="mount">跟踪架台</button></div></article>
+      <article class="chain"><h2><i data-icon="camera"></i>把微弱光线记录为图像</h2><p>光学镜筒汇聚入射光。相机在曝光期间积累信号，移动目标会在像面上划出一段光迹。</p><div class="chain-path"><button data-part="tube">光学镜筒</button><i data-icon="arrow"></i><button data-part="camera">科学相机</button><i data-icon="arrow"></i><button data-stage="experiment">曝光实验</button></div></article>
+      <article class="chain"><h2><i data-icon="layers"></i>从多帧中识别运动</h2><p>以恒星为位置参照。比较多个时刻的坐标，挑出持续移动的候选体，交给后续观测复查。</p><div class="chain-path"><button data-stage="readout">判读三张星图</button></div></article>
+    </div>
+  </section>
+  <section class="content-view" id="resources-view" hidden>
+    <a class="catalog-link" href="../index.html"><i data-icon="back"></i>场景目录</a>
+    <h1>真实的空间碎片观测</h1><p class="lead">从欧洲空间局的两份观测资料，看看地面光学望远镜如何参与空间碎片巡测。</p>
+    <div id="source-cards">
+      <a class="source-card" href="https://www.esa.int/media/eye-on-debris" target="_blank" rel="noopener"><i data-icon="layers"></i><small>ESA · 观测设备</small><h2>巡测望远镜能看见什么？</h2><p>认识一米口径望远镜和数字相机，了解观测员如何从亮度与颜色研究碎片。</p><span>阅读英文原文 <i data-icon="external"></i></span></a>
+      <a class="source-card" href="https://www.esa.int/articles/esa-s-tenerife-telescope-resumes-watching-the-sky" target="_blank" rel="noopener"><i data-icon="scope"></i><small>ESA · 观测案例</small><h2>特内里费的观测之夜</h2><p>跟随观测员重复拍摄同一天区，看他们如何找出移动光点，再与目录比对。</p><span>阅读英文原文 <i data-icon="external"></i></span></a>
+    </div>
+    <details class="credits"><summary>关于模型与星图</summary><p>ST-01 是为本课程设计的地面反射式望远镜。曝光实验和判读练习使用两组独立的模拟星场。单次移动检测只能提出候选体，确认身份还需要后续观测和轨道比对。</p><p>三维视图使用 Three.js（MIT 许可）。组件、教学星图和交互均可在本地运行。</p></details>
+  </section>
+</main>
+<footer class="page-footer"><span><i data-icon="scope"></i><b lang="en">Sky Lab</b><span class="footer-dot">/</span>天文观测实验室</span><a class="catalog-link" href="../index.html"><i data-icon="back"></i>返回场景目录</a></footer>
+<dialog id="info-dialog" aria-labelledby="dialog-title"><div class="dialog-inner"><button class="icon-btn" id="close-dialog" aria-label="关闭"><i data-icon="close"></i></button><div id="dialog-body"></div><button class="action-btn" id="dialog-action">返回工作台</button></div></dialog>
+</body></html>
