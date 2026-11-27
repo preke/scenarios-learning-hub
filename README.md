@@ -1,11 +1,13 @@
 # Scenarios Learning Hub · 场景教学实验室
 
-从[场景目录](index.html)选择一项工程任务。两门课程都可以直接在浏览器中运行。
+**[进入在线展示版](https://preke.github.io/demos/scenarios-learning-hub/index.html)** · [查看个人主页上的 Demo 条目](https://preke.github.io/demo.html#scenarios-learning-hub)
+
+从场景目录选择一项工程任务，也可以直接打开下表中的课程。
 
 | 场景 | 课程内容 | 语言与时长 |
 | --- | --- | --- |
-| [机械臂的第一次抓取](robot-arm/index.html) | 观察六轴机械臂的关节运动，安排抓取和放置零件的顺序。 | 英文，45–60 分钟 |
-| [CubeSat 的首次对地观测](cubesat/index.html) | 拆看卫星组件，比较日照与地影中的电量，安排拍摄与数据下传。 | 中文，约 25 分钟 |
+| [机械臂的第一次抓取](https://preke.github.io/demos/scenarios-learning-hub/robot-arm/) | 观察六轴机械臂的关节运动，安排抓取和放置零件的顺序。 | 英文，45–60 分钟 |
+| [CubeSat 的首次对地观测](https://preke.github.io/demos/scenarios-learning-hub/cubesat/) | 拆看卫星组件，比较日照与地影中的电量，安排拍摄与数据下传。 | 中文，约 25 分钟 |
 
 ## 本地预览
 
