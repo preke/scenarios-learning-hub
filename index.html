@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="在 Scenarios Learning Hub 选择机械臂抓取或 CubeSat 对地观测任务，探索三维模型，动手实验并规划操作顺序。">
+<title>Scenarios Learning Hub · 场景教学实验室</title>
+<style>
+:root{color-scheme:light;--ink:#272939;--muted:#616577;--purple:#7563ce;--deep:#5e4fb0;--soft:#efecfa;--line:#e0e1eb;--shell:#f8f9fc;--paper:#fff;font-family:"Avenir Next","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--shell);font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}h1,h2,p{margin:0}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid #8977dc;outline-offset:5px}svg.icon{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}.defs{position:absolute;width:0;height:0;overflow:hidden}
+header{background:var(--paper);border-bottom:1px solid var(--line)}.header-inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;margin:0 auto;width:min(100% - 80px,1456px)}.brand{display:inline-flex;align-items:center;gap:12px;line-height:1.15}.brand-symbol{width:34px;height:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:4px;transform:rotate(-8deg)}.brand-symbol i{display:block;background:var(--purple);border-radius:4px}.brand-symbol i:nth-child(2){background:#b8ade8;border-radius:9px 4px 4px 4px}.brand-symbol i:nth-child(3){background:#a9c9e6}.brand-symbol i:nth-child(4){background:#dbd5f3}.brand-name{font-size:21px;font-weight:650;letter-spacing:-.65px}.brand-name small{display:block;font-size:10px;letter-spacing:1.1px;margin-top:3px;color:var(--muted);font-weight:500}.back{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#5a5672;font-weight:550;padding:8px 13px;border:1px solid var(--line);border-radius:8px;background:white}.back .icon{font-size:15px}.back:hover{color:var(--deep);background:#f7f5fe;border-color:#cfc8e8}
+main{width:min(100% - 96px,1180px);margin:0 auto;flex:1;padding:clamp(34px,4.5vh,64px) 0 36px}.intro{margin:0 0 25px}.intro h1{font-size:clamp(36px,3.2vw,48px);line-height:1.27;letter-spacing:-.055em;font-weight:680}.intro p{font-size:15px;line-height:1.85;color:var(--muted);margin-top:10px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;position:relative;transition:border-color .16s,box-shadow .16s;box-shadow:0 2px 5px #27293905}.card:hover{border-color:#b5a9da;box-shadow:0 5px 18px #45376b0b}.image-link{display:block;position:relative;background:#e6e8f2;aspect-ratio:1.96;overflow:hidden}.satellite .image-link{background:#0c1424}.image-link img{width:100%;height:100%;object-fit:cover;display:block}.copy{padding:21px clamp(19px,2vw,29px) 0;display:flex;flex-direction:column;flex:1}.category{display:flex;gap:6px;align-items:center;color:var(--deep);font-size:12px;letter-spacing:.02em;font-weight:600}.category .icon{width:15px;height:15px}.card h2{font-weight:660;font-size:clamp(22px,2vw,29px);line-height:1.35;letter-spacing:-.04em;margin:9px 0 8px}.summary{max-width:36em;font-size:14px;line-height:1.85;color:var(--muted);margin-bottom:20px}.card-foot{border-top:1px solid #e9e9f0;margin-top:auto;padding:14px 0 15px;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:10px}.facts{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.fact{font-size:12px;color:#646779;display:inline-flex;align-items:center;gap:5px}.fact .icon{font-size:15px;color:#8b859c}.launch{background:var(--soft);border-radius:7px;padding:7px 12px;color:var(--deep);font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:8px;line-height:1.45;white-space:nowrap}.launch .icon{font-size:14px}.card:hover .launch{background:var(--purple);color:white}.bottom{border-top:1px solid var(--line);color:#686b7e;font-size:12px}.bottom-inner{width:min(100% - 96px,1180px);margin:auto;display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px}.bottom-inner span:first-child{font-weight:600}.bottom a{display:inline-flex;align-items:center;gap:6px}.bottom a:hover{color:var(--deep);text-decoration:underline}
+@media(max-width:1050px){main,.bottom-inner{width:calc(100% - 56px)}.header-inner{width:calc(100% - 52px)}.cards{gap:18px}.facts{gap:9px}.copy{padding:18px 19px 0}.intro{margin-bottom:20px}}
+@media(max-width:700px){.header-inner{width:calc(100% - 34px);min-height:64px}.brand-symbol{width:27px;height:29px;gap:3px}.brand-name{font-size:18px}.brand-name small{font-size:9px}.back{font-size:12px}.cards{grid-template-columns:1fr}.intro h1{font-size:32px}.intro p{font-size:14px}main,.bottom-inner{width:calc(100% - 34px)}main{padding-top:25px}.bottom{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true"><defs>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+<symbol id="back" viewBox="0 0 24 24"><path d="M20 12H5m6 6-6-6 6-6"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.4 2.2"/></symbol>
+<symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><ellipse cx="12" cy="12" rx="3.8" ry="8.8"/><path d="M3.2 12h17.6"/></symbol>
+<symbol id="orbit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><ellipse cx="12" cy="12" rx="11" ry="3.5" transform="rotate(-35 12 12)"/></symbol>
+<symbol id="arm" viewBox="0 0 24 24"><path d="M2 21h11M5 20l2-6m3 6-1-6m3-4 5-4m0-2-4 1M8 9l2-4m1-1 6 2m1 0 3 3-1 2m-2-2-1 1"/><circle cx="8" cy="12" r="2.4"/><circle cx="11" cy="4" r="1.6"/><circle cx="18" cy="6" r="1.5"/></symbol>
+</defs></svg>
+<header><div class="header-inner"><a href="index.html" class="brand" aria-label="Scenarios Learning Hub 场景目录"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="brand-name" lang="en">Scenarios<small>Learning Hub</small></span></a><a class="back" href="https://preke.github.io/demo.html#scenarios-learning-hub"><svg class="icon" aria-hidden="true"><use href="#back"/></svg>返回 Demos</a></div></header>
+<main>
+<div class="intro"><h1>场景教学实验室</h1><p>选择一项工程任务，从探索三维模型开始，动手实验，再规划自己的操作步骤。</p></div>
+<div class="cards">
+<a class="card robot" href="robot-arm/index.html" aria-labelledby="robot-title" aria-describedby="robot-summary robot-facts">
+<div class="image-link"><img src="assets/robot-arm.webp" alt="机械臂的夹爪正对着传送带上的蓝色零件，旁边是目标托盘" width="1080" height="608"></div>
+<div class="copy"><div class="category"><svg class="icon" aria-hidden="true"><use href="#arm"/></svg>机器人与智能制造</div><h2 id="robot-title">机械臂的第一次抓取</h2>
+<p class="summary" id="robot-summary">把蓝色零件从拾取区送到目标托盘。先观察六轴机械臂怎样运动，再为抓取和放置安排顺序。</p>
+<div class="card-foot"><div class="facts" id="robot-facts"><span class="fact"><svg class="icon" aria-hidden="true"><use href="#clock"/></svg>45–60 分钟</span><span class="fact"><svg class="icon" aria-hidden="true"><use href="#globe"/></svg>英文课程</span></div><span class="launch">进入场景<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></div>
+</div></a>
+<a class="card satellite" href="cubesat/index.html" aria-labelledby="sat-title" aria-describedby="sat-summary sat-facts">
+<div class="image-link"><img src="assets/cubesat.webp" alt="展开太阳翼的观澜一号立方星飞过蓝色地球上空" width="1280" height="700"></div>
+<div class="copy"><div class="category"><svg class="icon" aria-hidden="true"><use href="#orbit"/></svg>航天与对地观测</div><h2 id="sat-title">CubeSat 的首次对地观测</h2>
+<p class="summary" id="sat-summary">让「观澜一号」拍下湖区影像。拆看卫星组件，比较日照与地影中的电量，再安排拍摄与下传。</p>
+<div class="card-foot"><div class="facts" id="sat-facts"><span class="fact"><svg class="icon" aria-hidden="true"><use href="#clock"/></svg>约 25 分钟</span><span class="fact"><svg class="icon" aria-hidden="true"><use href="#globe"/></svg>中文课程</span></div><span class="launch">进入场景<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></div>
+</div></a>
+</div></main>
+<footer class="bottom"><div class="bottom-inner"><span lang="en">Scenarios Learning Hub</span><a href="https://preke.github.io/index.html">温志远的个人主页<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div></footer>
+</body></html>
